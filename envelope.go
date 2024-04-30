@@ -19,8 +19,11 @@ var (
 // Envelope is a SOAP envelope.
 type Envelope struct {
 	// XMLName is the serialized name of this object.
-	XMLName xml.Name `xml:"http://schemas.xmlsoap.org/soap/envelope/ Envelope"`
-
+	XMLName xml.Name `xml:"http://schemas.xmlsoap.org/soap/envelope/ soap:Envelope"`
+	XMLHew  xml.Name `xml:"http://schemas.datacontract.org/2004/07/HEWebsite.Partner soap:Envelope"`
+	XMLMem  xml.Name `xml:"http://www.healthequity.com/partner/memberbalancewebserviceV3 soap:Envelope"`
+	XMLSoap xml.Name `xml:"xmlns:soap=http://www.w3.org/2003/05/soap-envelope soap:Envelope"`
+	//<soap:Envelope xmlns:hew="http://schemas.datacontract.org/2004/07/HEWebsite.Partner" xmlns:mem="http://www.healthequity.com/partner/memberbalancewebserviceV3" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
 	// These are generic namespaces used by all messages.
 	XMLNSXsd string `xml:"xmlns:xsd,attr,omitempty"`
 	XMLNSXsi string `xml:"xmlns:xsi,attr,omitempty"`
