@@ -16,13 +16,19 @@ var (
 	ErrEnvelopeMisconfigured = errors.New("envelope content or fault pointer empty")
 )
 
+// <soap:Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+//<soap:Envelope xmlns="http://schemas.datacontract.org/2004/07/HEWebsite.Partner"></soap:Envelope>
+//<soap:Envelope xmlns="http://www.healthequity.com/partner/memberbalancewebserviceV3"></soap:Envelope>
+//<soap:Envelope xmlns="xmlns:soap=http://www.w3.org/2003/05/soap-envelope"></soap:Envelope>
+//<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Action xmlns="http://www.healthequity.com/partner/memberbalancewebserviceV3/IMemberBalanceWebServiceV3/GetMemberBalance"></Action></Header><Body xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Content><MemberId>240031031</MemberId><SessionId>1714514092+tx8fgnraXcW0UoC2</SessionId><AccountTypeFlags>1</AccountTypeFlags><BalanceTypeFlags>1</BalanceTypeFlags><EIN></EIN></Content></Body></soap:Envelope>
+
 // Envelope is a SOAP envelope.
 type Envelope struct {
 	// XMLName is the serialized name of this object.
 	XMLName xml.Name `xml:"http://schemas.xmlsoap.org/soap/envelope/ soap:Envelope"`
-	XMLHew  xml.Name `xml:"http://schemas.datacontract.org/2004/07/HEWebsite.Partner soap:Envelope"`
-	XMLMem  xml.Name `xml:"http://www.healthequity.com/partner/memberbalancewebserviceV3 soap:Envelope"`
-	XMLSoap xml.Name `xml:"xmlns:soap=http://www.w3.org/2003/05/soap-envelope soap:Envelope"`
+	XMLHew  xml.Name `xml:"http://schemas.datacontract.org/2004/07/HEWebsite.Partner"`
+	XMLMem  xml.Name `xml:"http://www.healthequity.com/partner/memberbalancewebserviceV3"`
+	XMLSoap xml.Name `xml:"xmlns:soap=http://www.w3.org/2003/05/soap-envelope"`
 	//<soap:Envelope xmlns:hew="http://schemas.datacontract.org/2004/07/HEWebsite.Partner" xmlns:mem="http://www.healthequity.com/partner/memberbalancewebserviceV3" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
 	// These are generic namespaces used by all messages.
 	XMLNSXsd string `xml:"xmlns:xsd,attr,omitempty"`
