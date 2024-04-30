@@ -97,7 +97,7 @@ func (r *Request) httpRequest() (*http.Request, error) {
 		return nil, err
 	}
 
-	httpReq.Header.Add("Content-Type", "text/xml; charset=\"utf-8\"")
+	httpReq.Header.Add("Content-Type", "application/soap+xml; charset=\"utf-8\"")
 	httpReq.Header.Add("SOAPAction", r.action)
 
 	return httpReq, nil
