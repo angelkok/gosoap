@@ -82,7 +82,8 @@ func NewWSSEAuthInfo(certPath string, keyPath string) (*WSSEAuthInfo, error) {
 
 	keyPemBlock, _ := pem.Decode([]byte(keyFileContents))
 
-	if keyPemBlock == nil || keyPemBlock.Type != "RSA PRIVATE KEY" {
+	//if keyPemBlock == nil || keyPemBlock.Type != "RSA PRIVATE KEY" {
+	if keyPemBlock == nil || keyPemBlock.Type != "PRIVATE KEY" {
 		return nil, ErrInvalidPEMFileSpecified
 	} else if x509.IsEncryptedPEMBlock(keyPemBlock) {
 		return nil, ErrEncryptedPEMFileSpecified
