@@ -89,7 +89,9 @@ func NewWSSEAuthInfo(certPath string, keyPath string) (*WSSEAuthInfo, error) {
 		return nil, ErrEncryptedPEMFileSpecified
 	}
 
-	key, err := x509.ParsePKCS1PrivateKey(keyPemBlock.Bytes)
+	//x509: failed to parse private key (use ParsePKCS8PrivateKey instead for this key format)
+	//key, err := x509.ParsePKCS1PrivateKey(keyPemBlock.Bytes)
+	key, err := x509.ParsePKCS8PrivateKey(keyPemBlock.Bytes)
 	if err != nil {
 		return nil, err
 	}
