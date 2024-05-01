@@ -98,7 +98,7 @@ func NewWSSEAuthInfo(certPath string, keyPath string) (*WSSEAuthInfo, error) {
 
 	return &WSSEAuthInfo{
 		certDER: certDer,
-		key:     key,
+		key:     key.(*rsa.PrivateKey),
 	}, nil
 }
 
